@@ -36,6 +36,7 @@ public class QuanLySachUI extends JFrame {
     }
 
 
+    //Hàm lấy toàn bộ nhà xuất bản xuất ra bảng hiển thị
     private void hienThiToanBoNhaXuatBan() throws SQLException {
         NhaXuatBanService nhaXuatBanService = new NhaXuatBanService();
         dsNXB = nhaXuatBanService.layToanBoNhaXuatBan();
@@ -63,12 +64,14 @@ public class QuanLySachUI extends JFrame {
         con.add(pnNorth,BorderLayout.NORTH);
         con.add(pnSouth,BorderLayout.SOUTH);
 
+        //Khu vực chi tiết nhà xuất bản và các nút thực hiện
         pnNorth.setLayout(new BorderLayout());
         JPanel pnChiTiet = new JPanel();
         pnNorth.add(pnChiTiet,BorderLayout.CENTER);
         JPanel pnThucHien = new JPanel();
         pnNorth.add(pnThucHien,BorderLayout.EAST);
 
+        //Khu vực hiển thị Thông tin nhà xuất bản
         pnChiTiet.setLayout(new BoxLayout(pnChiTiet,BoxLayout.Y_AXIS));
         JPanel pnNxb = new JPanel();
         JLabel lblNxb = new JLabel("Thông tin nhà xuất bản");
@@ -78,6 +81,7 @@ public class QuanLySachUI extends JFrame {
         pnNxb.add(lblNxb);
         pnChiTiet.add(pnNxb);
 
+        //Dòng mã nhà xuất bản
         JPanel pnMaNxb= new JPanel();
         JLabel lblMaNxb = new JLabel("Mã NXB:");
         txtMaNxb = new JTextField(25);
@@ -85,6 +89,7 @@ public class QuanLySachUI extends JFrame {
         pnMaNxb.add(txtMaNxb);
         pnChiTiet.add(pnMaNxb);
 
+        //Dòng tên nhà xuất bản
         JPanel pnTenNxb= new JPanel();
         JLabel lblTenNxb = new JLabel("Tên NXB:");
         txtTenNxb = new JTextField(25);
@@ -92,6 +97,7 @@ public class QuanLySachUI extends JFrame {
         pnTenNxb.add(txtTenNxb);
         pnChiTiet.add(pnTenNxb);
 
+        //Dòng địa chỉ nhà xuất bản
         JPanel pnDiaChi= new JPanel();
         JLabel lblDiaChi = new JLabel("Địa chỉ:");
         txtDiaChi = new JTextField(25);
@@ -99,6 +105,7 @@ public class QuanLySachUI extends JFrame {
         pnDiaChi.add(txtDiaChi);
         pnChiTiet.add(pnDiaChi);
 
+        //Dòng số điện thoại nhà xuất bản
         JPanel pnDienThoai = new JPanel();
         JLabel lblDienThoai = new JLabel("Điện Thoại:");
         txtDienThoai = new JTextField(25);
@@ -106,6 +113,7 @@ public class QuanLySachUI extends JFrame {
         pnDienThoai.add(txtDienThoai);
         pnChiTiet.add(pnDienThoai);
 
+        //2 nút điều khiển bảng
         JPanel pnButtonChiTiet = new JPanel();
         btnVeTruoc = new JButton("Về Trước");
         btnVeSau = new JButton("Về Sau");
@@ -116,27 +124,32 @@ public class QuanLySachUI extends JFrame {
         pnButtonChiTiet.add(btnVeSau);
         pnChiTiet.add(pnButtonChiTiet);
 
+        //Nút thêm mới sách
         pnThucHien.setLayout(new BoxLayout(pnThucHien,BoxLayout.Y_AXIS));
         JPanel pnButtonThem = new JPanel();
         btnThem = new JButton("Thêm");
         pnButtonThem.add(btnThem);
         pnThucHien.add(pnButtonThem);
 
+        //Nút lưu mới thông tin nhà xuất bản
         JPanel pnButtonLuu = new JPanel();
         btnLuu = new JButton("Lưu");
         pnButtonLuu.add(btnLuu);
         pnThucHien.add(pnButtonLuu);
 
+        //Nút sửa thông tin nhà xuất bản
         JPanel pnButtonSua = new JPanel();
         btnSua = new JButton("Sửa");
         pnButtonSua.add(btnSua);
         pnThucHien.add(pnButtonSua);
 
+        //Nút xoá nhà xuất bản
         JPanel pnButtonXoa = new JPanel();
         btnXoa = new JButton("Xoá");
         pnButtonXoa.add(btnXoa);
         pnThucHien.add(pnButtonXoa);
 
+        //Bảng dữ liệu nhà xuất bản
         pnCenter.setLayout(new BorderLayout());
         dtmNxb = new DefaultTableModel();
         dtmNxb.addColumn("Mã nhà xuất bản");
@@ -147,11 +160,13 @@ public class QuanLySachUI extends JFrame {
         JScrollPane scTable = new JScrollPane(tblNXB,JScrollPane.VERTICAL_SCROLLBAR_ALWAYS,JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
         pnCenter.add(scTable,BorderLayout.CENTER);
 
+        //Nút hiển thị, tìm kiếm sách
         JPanel pnButtonOfSouth = new JPanel();
         btnTimkiem = new JButton("Sách");
         pnButtonOfSouth.add(btnTimkiem);
         pnSouth.add(pnButtonOfSouth, BorderLayout.WEST);
 
+        //Border
         TitledBorder borderThongTinChiTiet = new TitledBorder(BorderFactory.createLineBorder(Color.BLUE),"Thông tin chi tiết");
         pnChiTiet.setBorder(borderThongTinChiTiet);
 
@@ -162,6 +177,7 @@ public class QuanLySachUI extends JFrame {
         lblTenNxb.setPreferredSize(lblDienThoai.getPreferredSize());
         lblDiaChi.setPreferredSize(lblDienThoai.getPreferredSize());
 
+        //Set Icon cho các nút chức năng
         btnThem.setIcon(new ImageIcon("images/them.png"));
         btnLuu.setIcon(new ImageIcon("images/save.png"));
         btnSua.setIcon(new ImageIcon("images/edit.png"));
@@ -170,9 +186,11 @@ public class QuanLySachUI extends JFrame {
         btnVeSau.setIcon(new ImageIcon("images/next.png"));
         btnTimkiem.setIcon(new ImageIcon("images/search.png"));
 
+        //Border bảng
         TitledBorder borderDanhSachNXB = new TitledBorder(BorderFactory.createLineBorder(Color.BLUE),"Danh sách nhà xuất bản");
         pnCenter.setBorder(borderDanhSachNXB);
 
+        //Phần thông tin nhà phát triển
         JPanel pnFooter = new JPanel();
         pnFooter.setLayout(new BorderLayout());
         JLabel lblFooter = new JLabel("Design By TrungHC");
@@ -187,6 +205,7 @@ public class QuanLySachUI extends JFrame {
         btnTimkiem.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                //Gọi ra cửa sổ tìm kiếm sách
                 TimKiemUI ui= new TimKiemUI("Tìm kiếm sách");
                 ui.showWindow();
             }
@@ -229,6 +248,7 @@ public class QuanLySachUI extends JFrame {
             }
         });
 
+        //Sự kiện khi bấm vào 1 nhà xuất bản sẽ hiển thị thông tin nhà xuất bản đó lên trên khu vực chi tiết
         tblNXB.addMouseListener(new MouseListener() {
             @Override
             public void mouseClicked(MouseEvent e) {
@@ -285,6 +305,7 @@ public class QuanLySachUI extends JFrame {
     }
 
     private void xuLyThem() {
+        //Hiển thị màn hình Thêm sách
         ThemSachUI ui = new ThemSachUI("New BOOK");
         ui.showWindow();
     }

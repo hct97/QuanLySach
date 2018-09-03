@@ -27,6 +27,7 @@ public class TimKiemUI extends JFrame {
         hienThiToanBoSach();
     }
 
+    //Hàm hiển thị toàn bộ sách
     private void hienThiToanBoSach() {
         SachService sachService = new SachService();
         dsSach = sachService.hienThiToanBoSach();
@@ -47,6 +48,7 @@ public class TimKiemUI extends JFrame {
         con.setLayout(new BorderLayout());
         JPanel pnNorth = new JPanel();
         pnNorth.setLayout(new FlowLayout(FlowLayout.LEFT));
+        //Khung tìm kiếm
         JLabel lblNhap = new JLabel("Mã NXB: ");
         txtTim = new JTextField(20);
         btnTim = new JButton("Tìm kiếm");
@@ -55,6 +57,7 @@ public class TimKiemUI extends JFrame {
         pnNorth.add(btnTim);
         con.add(pnNorth,BorderLayout.NORTH);
 
+        //Bảng hiển thị tất cả sách
         JPanel pnCenter = new JPanel();
         pnCenter.setLayout(new BorderLayout());
         dtmSach = new DefaultTableModel();

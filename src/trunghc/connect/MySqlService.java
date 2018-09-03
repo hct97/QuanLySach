@@ -6,6 +6,7 @@ import java.util.logging.Logger;
 
 public class MySqlService {
 
+        //Khai báo biến để kết nối cơ sở dữ liệu
         public static Connection getMySQLConnection() throws SQLException, ClassNotFoundException {
             String hostName = "localhost";
 

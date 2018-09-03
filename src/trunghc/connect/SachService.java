@@ -12,6 +12,7 @@ import java.util.ArrayList;
 
 public class SachService extends MySqlService {
 
+    //Mảng lấy toàn bộ sách
     public ArrayList<Sach> hienThiToanBoSach(){
         ArrayList<Sach> dsSach = new ArrayList<Sach>();
         try{
@@ -34,6 +35,7 @@ public class SachService extends MySqlService {
         return dsSach;
     }
 
+    //Mảng tìm sách theo mã nhà xuất bản
     public ArrayList<Sach> timSachTheoNhaXuatBan(String manxb){
         ArrayList<Sach> dsSach = new ArrayList<Sach>();
         try{
@@ -56,6 +58,8 @@ public class SachService extends MySqlService {
         }
         return dsSach;
     }
+
+    //Thêm mới sách vào cơ sở dữ liệu
     public void themSach(String maSach, String tenSach, String soTrang, String maNXB){
 
         try{

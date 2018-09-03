@@ -11,6 +11,7 @@ import java.util.ArrayList;
 
 public class NhaXuatBanService extends MySqlService {
 
+    //Mảng lấy toàn bộ danh sách nhà xuất bản
     public ArrayList<NhaXuatBan> layToanBoNhaXuatBan(){
         ArrayList<NhaXuatBan> dsNxb = new ArrayList<NhaXuatBan>();
         try{
@@ -33,6 +34,7 @@ public class NhaXuatBanService extends MySqlService {
         return dsNxb;
     }
 
+    //Thêm mới nhà xuất bản vào cơ sở dữ liệu
     public void themNhaXuatBan(String maNXB,String tenNXB,String diaChi, String dienThoai){
         try{
             Connection conn = MySqlService.getMySQLConnection();
@@ -51,6 +53,8 @@ public class NhaXuatBanService extends MySqlService {
             ex.printStackTrace();
         }
     }
+
+    //Sửa thông tin nhà xuất bản trong cơ sở dữ liệu
     public void suaNhaXuatBan(String maNXB,String tenNXB,String diaChi, String dienThoai){
         try{
             Connection conn = MySqlService.getMySQLConnection();
@@ -71,6 +75,8 @@ public class NhaXuatBanService extends MySqlService {
             ex.printStackTrace();
         }
     }
+
+    //Xoá nhà xuất bản trong cơ sở dữ liệu
     public void xoaNhaXuatBan(String maNXB){
         try{
             Connection conn = MySqlService.getMySQLConnection();
